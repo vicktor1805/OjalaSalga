@@ -1,0 +1,18 @@
+D:\UPC\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\bin\Debug\Interseccion de Puntos.exe.config
+C:\Users\Eduardo\Documents\GitHub\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\bin\Debug\Interseccion de Puntos.exe.config
+C:\Users\Eduardo\Documents\GitHub\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\bin\Debug\Interseccion de Puntos.exe
+C:\Users\Eduardo\Documents\GitHub\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\bin\Debug\Interseccion de Puntos.pdb
+C:\Users\Eduardo\Documents\GitHub\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion de Puntos.csprojResolveAssemblyReference.cache
+C:\Users\Eduardo\Documents\GitHub\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion_de_Puntos.Form1.resources
+C:\Users\Eduardo\Documents\GitHub\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion_de_Puntos.Properties.Resources.resources
+C:\Users\Eduardo\Documents\GitHub\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion de Puntos.csproj.GenerateResource.Cache
+C:\Users\Eduardo\Documents\GitHub\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion de Puntos.exe
+C:\Users\Eduardo\Documents\GitHub\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion de Puntos.pdb
+D:\UPC\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion de Puntos.exe
+D:\UPC\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion de Puntos.pdb
+D:\UPC\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion de Puntos.csprojResolveAssemblyReference.cache
+D:\UPC\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion_de_Puntos.Form1.resources
+D:\UPC\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion_de_Puntos.Properties.Resources.resources
+D:\UPC\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\obj\Debug\Interseccion de Puntos.csproj.GenerateResource.Cache
+D:\UPC\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\bin\Debug\Interseccion de Puntos.exe
+D:\UPC\TID\Proyectos Visual\Interseccion de Puntos\Interseccion de Puntos\bin\Debug\Interseccion de Puntos.pdb
