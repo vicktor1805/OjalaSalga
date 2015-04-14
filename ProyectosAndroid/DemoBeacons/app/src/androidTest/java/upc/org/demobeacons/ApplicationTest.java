@@ -1,4 +1,4 @@
-package demobeacon.upc.demobeacon;
+package upc.org.demobeacons;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
