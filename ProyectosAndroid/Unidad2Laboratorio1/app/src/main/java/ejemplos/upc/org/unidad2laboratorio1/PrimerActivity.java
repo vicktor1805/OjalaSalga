@@ -2,12 +2,16 @@ package ejemplos.upc.org.unidad2laboratorio1;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.RemoteException;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -15,6 +19,12 @@ import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,6 +42,11 @@ public class PrimerActivity extends Activity {
     private static final Region ALL_ESTIMOTE_BEACONS_REGION = new Region("rid", null, null, null);
     private BeaconManager beaconManager;
     private LeDeviceListAdapter adapter;
+
+    Button btnExportar;
+    Button btnEliminarTodo;
+    EditText txtNombreArchivo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -39,6 +54,9 @@ public class PrimerActivity extends Activity {
 
         adapter = new LeDeviceListAdapter(this);
         ListView list = (ListView)findViewById(R.id.device_list);
+        btnExportar = (Button)findViewById(R.id.btnExportar);
+        btnEliminarTodo = (Button)findViewById(R.id.btnEliminarTodo);
+        txtNombreArchivo = (EditText)findViewById(R.id.txtNombreArchivo);
         list.setAdapter(adapter);
         list.setOnItemClickListener(createOnItemClickListener());
 
@@ -55,6 +73,24 @@ public class PrimerActivity extends Activity {
                         adapter.replaceWith(beacons);
                     }
                 });
+            }
+        });
+
+        btnExportar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeToFile(txtNombreArchivo.getText().toString()+ ".txt",adapter.getAllElements());
+
+            }
+        });
+
+        btnEliminarTodo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.DeleteAllData();
+                Toast.makeText(PrimerActivity.this, "Data eliminada", Toast.LENGTH_LONG).show();
+                finish();
+                System.exit(0);
             }
         });
     }
@@ -89,6 +125,8 @@ public class PrimerActivity extends Activity {
     protected void onStop() {
         try {
             beaconManager.stopRanging(new Region("rid", null, null, null));
+            //Log.i("a ver",adapter.getAllElements());
+
         } catch (RemoteException e) {
             Log.d(TAG, "Error while stopping ranging", e);
         }
@@ -141,4 +179,34 @@ public class PrimerActivity extends Activity {
             }
         };
     }
+
+    private void writeToFile(String sFileName, ArrayList<Beacon> listaBeacon){
+        try
+        {
+            File root = new File(Environment.getExternalStorageDirectory(), "Notes");
+            if (!root.exists()) {
+                root.mkdirs();
+            }
+            File gpxfile = new File(root, sFileName);
+            FileWriter writer = new FileWriter(gpxfile);
+
+            for(int i =0; i<listaBeacon.size() ; ++i)
+            {
+                writer.append(listaBeacon.get(i).getMacAddress() +
+                ","+
+                String.valueOf(listaBeacon.get(i).getRssi())+
+                System.getProperty("line.separator"));
+
+            }
+            writer.flush();
+            writer.close();
+            Toast.makeText(this, "Data exportada con exito", Toast.LENGTH_SHORT).show();
+        }
+        catch(IOException e)
+        {
+            Log.e(TAG, "Writing file failed", e);
+
+        }
+    }
+
 }

@@ -1,6 +1,7 @@
 package ejemplos.upc.org.unidad2laboratorio1;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,20 +11,24 @@ import android.widget.TextView;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
 
+import java.io.StringBufferInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Victor Moran on 15/04/2015.
  */
 public class LeDeviceListAdapter extends BaseAdapter {
 
+    private MyDBHandler database;
     private ArrayList<Beacon> beacons;
     private LayoutInflater inflater;
 
     public LeDeviceListAdapter(Context context) {
         this.inflater = LayoutInflater.from(context);
         this.beacons = new ArrayList<Beacon>();
+        this.database = new MyDBHandler(context,null,null,1);
     }
 
     public void replaceWith(Collection<Beacon> newBeacons) {
@@ -62,6 +67,8 @@ public class LeDeviceListAdapter extends BaseAdapter {
         holder.measuredPowerTextView.setText("MPower: " + beacon.getMeasuredPower());
         holder.rssiTextView.setText("RSSI: " + beacon.getRssi());
         holder.distanceTextView.setText("Distance: " + calculateDistance(beacon));
+        database.addRSSI(beacon);
+        //Log.i("Base de datos", "meto esto en la base: "+  beacon.getMacAddress()+ ""+ String.valueOf(beacon.getRssi()) );
     }
 
     private View inflateIfRequired(View view, int position, ViewGroup parent) {
@@ -115,5 +122,16 @@ public class LeDeviceListAdapter extends BaseAdapter {
             double accuracy = Math.pow(10d,((double)-62.72-rssi)/(2.2853));
             return accuracy;
         }
+
+
+    }
+
+    public ArrayList<Beacon> getAllElements()
+    {
+        return database.getAllElements();
+    }
+    public void DeleteAllData()
+    {
+        database.deleteAll();
     }
 }

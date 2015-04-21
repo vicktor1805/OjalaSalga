@@ -2,12 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
     <ListView
         android:id="@+id/device_list"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="198dp"
+        android:layout_weight="0.62" />
+
+    <EditText
+        android:layout_width="159dp"
+        android:layout_height="25dp"
+        android:id="@+id/txtNombreArchivo"
+        android:layout_weight="0.17" />
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Exportar a Texto"
+        android:id="@+id/btnExportar" />
+
+    <Button
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:text="Eliminar Todo los Datos"
+        android:id="@+id/btnEliminarTodo"
+        android:singleLine="false" />
 
 </LinearLayout>
